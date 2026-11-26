@@ -5,16 +5,16 @@ This folder contains an anonymized, self-contained copy of the baseline code use
 ## Folder structure
 
 - `pyproject.toml`: dependency and environment definition for `uv`.
-- `Data/`: local data files required by some tasks. This submission includes `Ethos_Dataset_Binary.csv` for the Ethos dataset.
-- `Results/`: output directory where JSON run logs are written.
+- `data/`: local data files required by some tasks. This submission includes `Ethos_Dataset_Binary.csv` for the Ethos dataset.
+- `Results/`: output directory created automatically for JSON run logs.
 - `src/Core/`: Python source files for the baseline methods and shared utilities.
 - `src/scripts/`: PowerShell wrappers that launch the baseline experiments.
 
 ## Environment setup
 
-From the `Code_Submission` folder:
+From the repository root:
 
-1. Create or edit the `.env` file in the `Code_Submission` root and set the API configuration:
+1. Create or edit the `.env` file in the repository root and set the API configuration:
 
 ```text
 OPENAI_BASE_URL=https://your-endpoint/v1
@@ -29,7 +29,7 @@ uv sync
 
 ## Running the code
 
-All PowerShell wrappers are intended to be launched from the `Code_Submission` root.
+All PowerShell wrappers are intended to be launched from the repository root.
 
 Baseline BO-LLM:
 
@@ -91,8 +91,8 @@ Each run writes a JSON log into `Results/`. The logs contain the run configurati
 
 ## Notes
 
-- The Ethos task uses the local CSV file included in `Data/`.
-- Other datasets are loaded programmatically by the Python loaders.
+- The Ethos task uses the local CSV file included in `data/`.
+- Other datasets are downloaded from Hugging Face by the Python loaders.
 - `src/Core/common_prompt_bo.py` reads `OPENAI_BASE_URL` and `OPENAI_API_KEY` from .env file.
 
 ## License

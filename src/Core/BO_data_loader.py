@@ -4,7 +4,7 @@ import random
 
 from datasets import load_dataset
 
-DATA_DIR = Path(__file__).resolve().parent / "Data"
+DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 ETHOS_PATH = DATA_DIR / "Ethos_Dataset_Binary.csv"
 ARC_LABEL_NAMES = ["A", "B", "C", "D"]
 CHOICE_LABEL_NAMES = [chr(ord("A") + idx) for idx in range(26)]
@@ -28,7 +28,7 @@ def format_hotpot_example(example):
     return f"Question: {example['question']}\n\nContext:\n{context_text}"
 
 def load_hotpot_qa(seed=42):
-    ds = load_dataset("hotpot_qa", "distractor")
+    ds = load_dataset("hotpotqa/hotpot_qa", "distractor")
     label_names = []
 
     train_data = [
