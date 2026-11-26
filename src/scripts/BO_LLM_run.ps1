@@ -1,5 +1,5 @@
 $seeds = @(
-    48,
+    48
 )
 
 $datasets = @(
